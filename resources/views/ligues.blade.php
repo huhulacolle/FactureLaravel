@@ -16,38 +16,44 @@
     </tr>
     @foreach ($ligue as $liguedata)
     <tr>
-        <td>
-            {{$liguedata -> NumLigue}}
-            <?php $max = $liguedata -> NumLigue ?>
-        </td>
-        <td>
-            {{$liguedata -> NomSport}}
-        </td>
-        <td>
-            {{$liguedata -> Nom}}
-        </td>
-        <td>
-            {{$liguedata -> Addrs}}
-        </td>
-        <td>
-            {{$liguedata -> Ville}}
-        </td>
-        <td>
-            {{$liguedata -> CodPost}}
-        </td>
-        <td>
-            {{$liguedata -> Sport}}
-        </td>
         <form action="modifligue" method="post">
             @csrf
             <td>
-                <button type="submit" name="modif" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Modifier </button>
+                <input type="text" class="form-control" value={{$liguedata -> NumLigue}} readonly>
+                <?php $max = $liguedata -> NumLigue ?>
+            </td>
+            <td>
+                <?php
+                $NomSport = explode(" ", $liguedata -> NomSport);
+                $NomSport = $NomSport[3];
+                ?>
+                Ligue Loraine de <input type="text" name="NomSport" class="form-control" value={{$NomSport}} required>
+            </td>
+            <td>
+                <input type="text" name="NomSport" class="form-control" value={{$liguedata -> Nom}} required>
+            </td>
+            <td>
+                <input type="text" name="NomSport" class="form-control" value={{$liguedata -> Addrs}} required>
+            </td>
+            <td>
+                <input type="text" name="NomSport" class="form-control" value={{$liguedata -> Ville}} required>
+            </td>
+            <td>
+                <input type="number" name="NomSport" class="form-control" value={{$liguedata -> CodPost}} required>
+            </td>
+            <td>
+                <input type="text" name="NomSport" class="form-control" value={{$liguedata -> Sport}} required>
             </td>
         </form>
+        <td>
+            <button type="submit" name="modif" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Modifier
+            </button>
+        </td>
         <form action="supprimligue" method="post">
             @csrf
             <td>
-                <button type="submit" name="supr" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Supprimer </button>
+                <button type="submit" name="supr" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Supprimer
+                </button>
             </td>
         </form>
     </tr>
