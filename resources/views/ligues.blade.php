@@ -38,9 +38,20 @@
         <td>
             {{$liguedata -> Sport}}
         </td>
+        <form action="modifligue" method="post">
+            <td>
+                <button type="submit" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Modifier </button>
+            </td>
+        </form>
+        <form action="supprimligue" method="post">
+            <td>
+                <button type="submit" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Supprimer </button>
+            </td>
+        </form>
     </tr>
     @endforeach
     <form action="ajoutligue" method="post">
+        @csrf
         <tr>
             <td>
                 <input type="text" class="form-control" name="NumLigue" value={{$max + 1}} readonly>
@@ -63,8 +74,8 @@
             <td>
                 <input type="text" class="form-control" name="Sport" required>
             </td>
-            <td>
-                <input type="submit" class="btn btn-primary">
+            <td colspan="2">
+                <button type="submit" class="btn btn-primary btn-lg btn-block"> Ajouter </button>
             </td>
         </tr>
     </form>

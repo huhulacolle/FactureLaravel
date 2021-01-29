@@ -14,7 +14,7 @@ class form extends Controller
 
     public function ajoutLigue()
     {
-        DB::insert('Insert Into LIGUE Values ("' . $_POST['NumLigue'] . '","Ligue Loraine de ' . $_POST['LigueSport'] . '","' . $_POST['Nom'] . '","' . $_POST['Addrs'] . '","' . $_POST['Ville'] . '","' . $_POST['CodPost'] . '","' . $_POST['Sport'] . '")');
+        DB::insert('Insert Into LIGUE Values ("' . $_POST['NumLigue'] . '","Ligue Loraine de ' . $_POST['NomSport'] . '","' . $_POST['Nom'] . '","' . $_POST['Addrs'] . '","' . $_POST['Ville'] . '","' . $_POST['CodPost'] . '","' . $_POST['Sport'] . '")');
         return back();
     }
 }
