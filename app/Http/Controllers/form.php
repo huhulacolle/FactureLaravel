@@ -17,4 +17,15 @@ class form extends Controller
         DB::insert('Insert Into LIGUE Values ("' . $_POST['NumLigue'] . '","Ligue Loraine de ' . $_POST['NomSport'] . '","' . $_POST['Nom'] . '","' . $_POST['Addrs'] . '","' . $_POST['Ville'] . '","' . $_POST['CodPost'] . '","' . $_POST['Sport'] . '")');
         return back();
     }
+
+    public function modifligue()
+    {
+
+    }
+
+    public function supprimligue()
+    {
+        DB::delete('delete from ligue where NumLigue = '.$_POST['supr'].'');
+        return back();
+    }
 }

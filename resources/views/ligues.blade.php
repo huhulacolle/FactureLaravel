@@ -39,13 +39,15 @@
             {{$liguedata -> Sport}}
         </td>
         <form action="modifligue" method="post">
+            @csrf
             <td>
-                <button type="submit" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Modifier </button>
+                <button type="submit" name="modif" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Modifier </button>
             </td>
         </form>
         <form action="supprimligue" method="post">
+            @csrf
             <td>
-                <button type="submit" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Supprimer </button>
+                <button type="submit" name="supr" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Supprimer </button>
             </td>
         </form>
     </tr>

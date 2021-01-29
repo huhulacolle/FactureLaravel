@@ -23,6 +23,6 @@ Route::get('Ligues', [form::class, 'afficheLigue']);
 
 Route::post('ajoutligue', [form::class, 'ajoutLigue']);
 
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
+Route::post('supprimligue', [form::class, 'supprimligue']);
+
+
