@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\form;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('acceuil');
 });
+
+Route::get('Ligues', [form::class, 'afficheLigue']);
+
+Route::post('ajoutligue', [form::class, 'ajoutLigue']);
 
 /* Route::get('/', function () {
     return view('welcome');

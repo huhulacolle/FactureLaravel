@@ -9,7 +9,8 @@
     <title>Facture @yield('title')</title>
 </head>
 <body>
-    <a href='index.php'> <img src="style/mdl.png" height="150px" width="150px"> </a>
+
+    <a href='/'> <img src="mdl.png" height="150px" width="150px"> </a>
 <center>
   <h2> Application Facturation </h2>
 </center>
@@ -22,7 +23,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <a class="nav-item nav-link" href="LigueModif.php">Ligues</a>
+        <a class="nav-item nav-link" href="Ligues">Ligues</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-item nav-link" href="PrestationModif.php">Prestations</a>
@@ -66,6 +67,7 @@ input::-o-outer-spin-button {
 	margin:0
 }
 </style>
+<br> <br>
     @yield('content')
 
 
