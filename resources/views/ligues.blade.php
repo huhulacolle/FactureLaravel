@@ -13,6 +13,8 @@
         <th scope="col"> Ville </th>
         <th scope="col"> Code Postal </th>
         <th scope="col"> Sport </th>
+        <th scope="col"> &ensp; </th>
+        <th scope="col"> &ensp; </th>
     </tr>
     @foreach ($ligue as $liguedata)
     <tr>
@@ -24,31 +26,34 @@
             </td>
             <td>
                 <?php
-                $NomSport = explode(" ", $liguedata -> NomSport);
-                $NomSport = $NomSport[3];
+                // $NomSport = explode(" ", $liguedata -> NomSport);
+                // $NomSport = $NomSport[3];
+                $test = explode(" ", $liguedata -> NomSport);
+                Log::debug($test);
+                $NomSport = $liguedata -> NomSport;
                 ?>
                 Ligue Loraine de <input type="text" name="NomSport" class="form-control" value={{$NomSport}} required>
             </td>
             <td>
-                <input type="text" name="NomSport" class="form-control" value={{$liguedata -> Nom}} required>
+                <input type="text" name="Nom" class="form-control" value={{$liguedata -> Nom}} required>
             </td>
             <td>
-                <input type="text" name="NomSport" class="form-control" value={{$liguedata -> Addrs}} required>
+                <input type="text" name="Addrs" class="form-control" value={{$liguedata -> Addrs}} required>
             </td>
             <td>
-                <input type="text" name="NomSport" class="form-control" value={{$liguedata -> Ville}} required>
+                <input type="text" name="Ville" class="form-control" value={{$liguedata -> Ville}} required>
             </td>
             <td>
-                <input type="number" name="NomSport" class="form-control" value={{$liguedata -> CodPost}} required>
+                <input type="number" name="CodPost" class="form-control" value={{$liguedata -> CodPost}} required>
             </td>
             <td>
-                <input type="text" name="NomSport" class="form-control" value={{$liguedata -> Sport}} required>
+                <input type="text" name="Sport" class="form-control" value={{$liguedata -> Sport}} required>
+            </td>
+            <td>
+                <button type="submit" name="NumLigue" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Modifier
+                </button>
             </td>
         </form>
-        <td>
-            <button type="submit" name="modif" class="btn btn-primary" value={{$liguedata -> NumLigue}}> Modifier
-            </button>
-        </td>
         <form action="supprimligue" method="post">
             @csrf
             <td>
