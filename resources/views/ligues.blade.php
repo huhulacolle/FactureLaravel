@@ -26,18 +26,17 @@
             </td>
             <td>
                 <?php
-                // $NomSport = explode(" ", $liguedata -> NomSport);
-                // $NomSport = $NomSport[3];
-                $test = explode(" ", $liguedata -> NomSport);
-                Log::debug($test);
-                $NomSport = $liguedata -> NomSport;
+                $NomSport = explode(" ", $liguedata -> NomSport);
+                $NomSport = $NomSport[3];
+                Log::debug($NomSport);
                 ?>
-                Ligue Loraine de <input type="text" name="NomSport" class="form-control" value={{$NomSport}} required>
+                Ligue Loraine de <input type="text" name="NomSport" class="form-control" value={{$liguedata -> NomSport}} required>
             </td>
             <td>
                 <input type="text" name="Nom" class="form-control" value={{$liguedata -> Nom}} required>
             </td>
             <td>
+                <?php Log::debug($liguedata -> Addrs); ?>
                 <input type="text" name="Addrs" class="form-control" value={{$liguedata -> Addrs}} required>
             </td>
             <td>
