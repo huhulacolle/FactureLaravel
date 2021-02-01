@@ -47,7 +47,8 @@
                     <input type="text" name="Ville" class="form-control" value={{$liguedata -> Ville}} required>
                 </td>
                 <td>
-                    <input type="number" name="CodPost" class="form-control" value={{$liguedata -> CodPost}} required>
+                    <input type="number" name="CodPost" class="form-control" step="0.01" value={{$liguedata -> CodPost}}
+                        required>
                 </td>
                 <td>
                     <input type="text" name="Sport" class="form-control" value={{$liguedata -> Sport}} required>
@@ -87,7 +88,7 @@
                     <input type="text" class="form-control" name="Ville" required>
                 </td>
                 <td>
-                    <input type="number" class="form-control" name="CodPost" minlength="0" maxlength="5" required>
+                    <input type="number" class="form-control" oninput="maxLengthCheck(this)" maxlength="5" name="CodPost" minlength="0" required>
                 </td>
                 <td>
                     <input type="text" class="form-control" name="Sport" required>
@@ -99,4 +100,12 @@
         </form>
     </tbody>
 </table>
+<script>
+    // This is an old version, for a more recent version look at
+    // https://jsfiddle.net/DRSDavidSoft/zb4ft1qq/2/
+    function maxLengthCheck(object) {
+        if (object.value.length > object.maxLength)
+            object.value = object.value.slice(0, object.maxLength)
+    }
+</script>
 @endsection

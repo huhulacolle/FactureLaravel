@@ -33,7 +33,7 @@
                     <input type="text" class="form-control" name="NomMat" value="{{$prestationdata -> NomMat}}" required>
                 </td>
                 <td>
-                    <input type="number" class="form-control" name="Prix" value={{$prestationdata -> Prix}} required>
+                    <input type="number" class="form-control" name="Prix" step="0.01" value={{$prestationdata -> Prix}} required>
                 </td>
                 <td>
                     <center>
@@ -65,7 +65,7 @@
                     <input type="text" class="form-control" name="NomMat" required>
                 </td>
                 <td>
-                    <input type="number" class="form-control" name="Prix" required>
+                    <input type="number" class="form-control" step="any" name="Prix" required>
                 </td>
                 <td colspan="2">
                     <button type="submit" class="btn btn-primary btn-lg btn-block"> Ajouter </button>
