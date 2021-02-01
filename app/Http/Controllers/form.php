@@ -8,13 +8,13 @@ class form extends Controller
 {
     public function afficheLigue()
     {
-        $ligue = DB::select('select * from ligue');
+        $ligue = DB::select('SELECT * FROM ligue');
         return view('ligues', compact('ligue'));
     }
 
     public function affichePrestation()
     {
-        $prestation = DB::select('select * from prestations');
+        $prestation = DB::select('SELECT * FROM prestations ORDER BY NumPrestation');
         return view('prestations', compact('prestation'));
     }
 
@@ -33,6 +33,24 @@ class form extends Controller
     public function supprimligue()
     {
         DB::delete('delete from ligue where NumLigue = '.$_POST['supr'].'');
+        return back();
+    }
+
+    public function ajoutPrestation()
+    {
+        DB::insert('Insert Into prestations Values ("' . $_POST['NumPrestation'] . '","' . $_POST['Nomtype'] . '","' . $_POST['NomMat'] . '", ' . $_POST['Prix'] . ')');
+        return back();
+    }
+
+    public function modifPrestation()
+    {
+        DB::update('update prestations set Nomtype = "'.$_POST['Nomtype'].'", NomMat = "'.$_POST['NomMat'].'" , Prix = '.$_POST['Prix'].' where NumPrestation = '.$_POST['NumPrestation'].'');
+        return back();
+    }
+
+    public function supprimprestation()
+    {
+        DB::delete('delete from prestations where NumPrestation = '.$_POST['supr'].'');
         return back();
     }
 }

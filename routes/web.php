@@ -27,4 +27,12 @@ Route::post('modifligue', [form::class, 'modifLigue']);
 
 Route::post('supprimligue', [form::class, 'supprimligue']);
 
+Route::get('Prestations', [form::class, 'affichePrestation']);
+
+Route::post('ajoutprestation', [form::class, 'ajoutPrestation']);
+
+Route::post('modifprestation', [form::class, 'modifPrestation']);
+
+Route::post('supprimprestation', [form::class, 'supprimprestation']);
+
 

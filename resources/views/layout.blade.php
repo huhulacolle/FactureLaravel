@@ -27,7 +27,7 @@
         <a class="nav-item nav-link" href="Ligues">Ligues</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-item nav-link" href="PrestationModif.php">Prestations</a>
+        <a class="nav-item nav-link" href="Prestations">Prestations</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"

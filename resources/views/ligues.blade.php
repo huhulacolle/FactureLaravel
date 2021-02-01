@@ -75,7 +75,7 @@
                     <input type="text" class="form-control" name="NumLigue" value={{$max + 1}} readonly>
                 </td>
                 <td>
-                    Ligue Loraine de</div> <input type="text" class="form-control" name="NomSport" required>
+                    Ligue Loraine de <input type="text" class="form-control" name="NomSport" required>
                 </td>
                 <td>
                     <input type="text" class="form-control" name="Nom" placeholder="Prénom NOM" required>
