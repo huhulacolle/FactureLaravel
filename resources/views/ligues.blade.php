@@ -37,7 +37,7 @@
             </td>
             <td>
                 <?php Log::debug($liguedata -> Addrs); ?>
-                <input type="text" name="Addrs" class="form-control" value={{$liguedata -> Addrs}} required>
+                <input type="text" name="Addrs" class="form-control" value="{{$liguedata -> Addrs}}" required>
             </td>
             <td>
                 <input type="text" name="Ville" class="form-control" value={{$liguedata -> Ville}} required>
