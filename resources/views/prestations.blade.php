@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <center>
-    <h1><strong>Prestations</strong></h1>
+    <h2><strong>Prestations</strong></h2>
 </center>
 <br>
 <table class="table table-hover">
