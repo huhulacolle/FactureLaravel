@@ -35,4 +35,6 @@ Route::post('modifprestation', [form::class, 'modifPrestation']);
 
 Route::post('supprimprestation', [form::class, 'supprimprestation']);
 
+Route::get('FormulaireFacture', [form::class, 'formfacture']);
+
 
