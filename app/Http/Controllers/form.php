@@ -12,6 +12,12 @@ class form extends Controller
         return view('ligues', compact('ligue'));
     }
 
+    public function affichePrestation()
+    {
+        $prestation = DB::select('select * from prestations');
+        return view('prestations', compact('prestation'));
+    }
+
     public function ajoutLigue()
     {
         DB::insert('Insert Into LIGUE Values ("' . $_POST['NumLigue'] . '","Ligue Loraine de ' . $_POST['NomSport'] . '","' . $_POST['Nom'] . '","' . $_POST['Addrs'] . '","' . $_POST['Ville'] . '","' . $_POST['CodPost'] . '","' . $_POST['Sport'] . '")');
@@ -20,7 +26,7 @@ class form extends Controller
 
     public function modifligue()
     {
-        DB::update('update ligue set NomSport = "'.$_POST['NomSport'].'", Nom = "'.$_POST['Nom'].'" , Addrs = "'.$_POST['Addrs'].'" , Ville = "'.$_POST['Ville'].'" , CodPost = '.$_POST['CodPost'].', Sport = "'.$_POST['Sport'].'" where NumLigue = '.$_POST['NumLigue'].'');
+        DB::update('update ligue set NomSport = "Ligue Loraine de '.$_POST['NomSport'].'", Nom = "'.$_POST['Nom'].'" , Addrs = "'.$_POST['Addrs'].'" , Ville = "'.$_POST['Ville'].'" , CodPost = '.$_POST['CodPost'].', Sport = "'.$_POST['Sport'].'" where NumLigue = '.$_POST['NumLigue'].'');
         return back();
     }
 
