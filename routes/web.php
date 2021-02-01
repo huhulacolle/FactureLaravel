@@ -37,4 +37,4 @@ Route::post('supprimprestation', [form::class, 'supprimprestation']);
 
 Route::get('FormulaireFacture', [form::class, 'formfacture']);
 
-
+Route::get('VoirFacture', [form::class, 'voirfacture']);

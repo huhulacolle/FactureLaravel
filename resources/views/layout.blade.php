@@ -36,7 +36,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="FormulaireFacture">Créer une facture</a>
-          <a class="dropdown-item" href="VoirFacture.php">Voir les factures</a>
+          <a class="dropdown-item" href="VoirFacture">Voir les factures</a>
       </li>
     </ul>
   </div>
