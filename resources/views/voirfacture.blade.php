@@ -5,14 +5,16 @@
     <h6> Selectionner la facture à afficher </h6>
 </center>
 <br>
+<?php $idFacture = NULL ?>
 <div class="mx-auto" style="width: 600px;">
     @foreach ($facture as $facturedata)
+    <?php $idFacture = $facturedata -> idFacture ?>
+    @endforeach
     <?php
-    if ($facturedata -> idFacture == null) {
-        echo "<br> <h5> <center> Aucune facture n'a été créée </center> </h5>";
+    if ($idFacture == NULL) {
+        echo " <br> <h5> <center> Aucune facture n'a été créée </center> </h5>";
     }
     ?>
-    @endforeach
     <table class="table table-borderless">
         <form action="Facture" method="post">
             @foreach ($facture as $facturedata)
