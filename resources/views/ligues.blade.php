@@ -1,4 +1,9 @@
 @extends('layout')
+<style>
+    p {
+        padding-top: 21px;
+    }
+</style>
 @section('content')
 <center>
     <h2><strong>Ligues</strong></h2>
@@ -24,7 +29,7 @@
             <form action="modifligue" method="post">
                 @csrf
                 <td>
-                    <input type="text" class="form-control" value={{$liguedata -> NumLigue}} readonly>
+                    <p><input type="text" class="form-control" value={{$liguedata -> NumLigue}} readonly></p>
                     <?php $max = $liguedata -> NumLigue ?>
                 </td>
                 <td>
@@ -37,34 +42,39 @@
                         required>
                 </td>
                 <td>
-                    <input type="text" name="Nom" class="form-control" value={{$liguedata -> Nom}} required>
+                    <p><input type="text" name="Nom" class="form-control" value={{$liguedata -> Nom}} required></p>
                 </td>
                 <td>
-                    <?php Log::debug($liguedata -> Addrs); ?>
-                    <input type="text" name="Addrs" class="form-control" value="{{$liguedata -> Addrs}}" required>
+                    <p><input type="text" name="Addrs" class="form-control" value="{{$liguedata -> Addrs}}" required>
+                    </p>
                 </td>
                 <td>
-                    <input type="text" name="Ville" class="form-control" value={{$liguedata -> Ville}} required>
+                    <p><input type="text" name="Ville" class="form-control" value={{$liguedata -> Ville}} required></p>
                 </td>
                 <td>
-                    <input type="number" name="CodPost" class="form-control" step="0.01" value={{$liguedata -> CodPost}}
-                        required>
+                    <p>
+                        <input type="number" name="CodPost" class="form-control" step="0.01"
+                            value={{$liguedata -> CodPost}} required>
+                    </p>
                 </td>
                 <td>
-                    <input type="text" name="Sport" class="form-control" value={{$liguedata -> Sport}} required>
+                    <p><input type="text" name="Sport" class="form-control" value={{$liguedata -> Sport}} required></p>
                 </td>
                 <td>
-                    <button type="submit" name="NumLigue" class="btn btn-primary" value={{$liguedata -> NumLigue}}>
-                        Modifier
-                    </button>
+                    <p> <button type="submit" name="NumLigue" class="btn btn-primary" value={{$liguedata -> NumLigue}}>
+                            Modifier
+                        </button>
+                    </p>
                 </td>
             </form>
             <form action="supprimligue" method="post">
                 @csrf
                 <td>
-                    <button type="submit" name="supr" class="btn btn-primary" value={{$liguedata -> NumLigue}}>
-                        Supprimer
-                    </button>
+                    <p>
+                        <button type="submit" name="supr" class="btn btn-primary" value={{$liguedata -> NumLigue}}>
+                            Supprimer
+                        </button>
+                    </p>
                 </td>
             </form>
         </tr>
@@ -73,28 +83,31 @@
             @csrf
             <tr>
                 <td>
-                    <input type="text" class="form-control" name="NumLigue" value={{$max + 1}} readonly>
+                    <p><input type="text" class="form-control" name="NumLigue" value={{$max + 1}} readonly></p>
                 </td>
                 <td>
                     Ligue Loraine de <input type="text" class="form-control" name="NomSport" required>
                 </td>
                 <td>
-                    <input type="text" class="form-control" name="Nom" placeholder="Prénom NOM" required>
+                    <p><input type="text" class="form-control" name="Nom" placeholder="Prénom NOM" required></p>
                 </td>
                 <td>
-                    <input type="text" class="form-control" name="Addrs" required>
+                    <p><input type="text" class="form-control" name="Addrs" required></p>
                 </td>
                 <td>
-                    <input type="text" class="form-control" name="Ville" required>
+                    <p><input type="text" class="form-control" name="Ville" required></p>
                 </td>
                 <td>
-                    <input type="number" class="form-control" oninput="maxLengthCheck(this)" maxlength="5" name="CodPost" minlength="0" required>
+                    <p>
+                        <input type="number" class="form-control" oninput="maxLengthCheck(this)" maxlength="5"
+                            name="CodPost" minlength="0" required>
+                    </p>
                 </td>
                 <td>
-                    <input type="text" class="form-control" name="Sport" required>
+                    <p><input type="text" class="form-control" name="Sport" required></p>
                 </td>
                 <td colspan="2">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block"> Ajouter </button>
+                    <p><button type="submit" class="btn btn-primary btn-lg btn-block"> Ajouter </button></p>
                 </td>
             </tr>
         </form>
@@ -107,5 +120,6 @@
         if (object.value.length > object.maxLength)
             object.value = object.value.slice(0, object.maxLength)
     }
+
 </script>
 @endsection
