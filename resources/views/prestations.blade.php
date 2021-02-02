@@ -37,7 +37,7 @@
                 </td>
                 <td>
                     <center>
-                        <button type="submit" class="btn btn-primary">Modifier</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Modifier</button>
                     </center>
                 </td>
             </form>
@@ -45,7 +45,7 @@
                 <form action="supprimprestation" method="post">
                     @csrf
                     <center>
-                        <button type="submit" class="btn btn-primary" name="supr"
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" name="supr"
                             value={{$prestationdata -> NumPrestation}}>Supprimer</button>
                     </center>
                 </form>
