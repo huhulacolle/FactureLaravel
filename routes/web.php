@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\form;
 
+use App\Http\Controllers\facture;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +37,6 @@ Route::post('modifprestation', [form::class, 'modifPrestation']);
 
 Route::post('supprimprestation', [form::class, 'supprimprestation']);
 
-Route::get('FormulaireFacture', [form::class, 'formfacture']);
+Route::get('FormulaireFacture', [facture::class, 'formfacture']);
 
-Route::get('VoirFacture', [form::class, 'voirfacture']);
+Route::get('VoirFacture', [facture::class, 'voirfacture']);

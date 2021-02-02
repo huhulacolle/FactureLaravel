@@ -53,17 +53,4 @@ class form extends Controller
         DB::delete('delete from prestations where NumPrestation = '.$_POST['supr'].'');
         return back();
     }
-
-    public function formfacture()
-    {
-        $sport = DB::select('SELECT Sport FROM LIGUE');
-        $liste = DB::select('SELECT Nomtype, NomMat, Prix FROM Prestations');
-        return view ('formfacture', compact('sport'), compact('liste'));
-    }
-
-    public function voirfacture()
-    {
-        $facture = DB::select('SELECT idFacture, NomSport, DateDeb, DateEcheance FROM LIGUE, Facture WHERE LIGUE.NumLigue = Facture.NumLigue');
-        return view('voirfacture', compact('facture'));
-    }
 }
