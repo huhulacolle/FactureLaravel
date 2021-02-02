@@ -1,4 +1,9 @@
 @extends('layout')
+<style>
+    p {
+        padding-top: 9px;
+    }
+</style>
 @section('content')
 <center>
     <h2><strong>Facture</strong></h2>
@@ -19,7 +24,7 @@
         <form action="Facture" method="post">
             @foreach ($facture as $facturedata)
             <tr>
-                <td> Facture N° FC {{$facturedata -> idFacture}} : </td>
+                <td> <p> Facture N° FC {{$facturedata -> idFacture}} : </p> </td>
                 <td>
                     <button type="submit" class="btn btn-link" name="idFacture" value={{$facturedata -> idFacture}}>
                         {{$facturedata -> NomSport}} : {{$facturedata -> DateDeb}} - {{$facturedata -> DateEcheance}}
