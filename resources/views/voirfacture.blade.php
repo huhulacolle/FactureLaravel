@@ -22,6 +22,7 @@
     ?>
     <table class="table table-borderless">
         <form action="Facture" method="post">
+            @csrf
             @foreach ($facture as $facturedata)
             <tr>
                 <td> <p> Facture N° FC {{$facturedata -> idFacture}} : </p> </td>
