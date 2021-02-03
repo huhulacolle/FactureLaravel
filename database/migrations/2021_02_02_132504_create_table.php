@@ -29,14 +29,19 @@ class CreateTable extends Migration
             $table->string('Ville', 25);
             $table->integer('Prix', 5.2);
         });
-        // Schema::create('Facture', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->timestamps();
-        // });
-        // Schema::create('ContenuFacture', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->timestamps();
-        // });
+
+        Schema::create('Facture', function (Blueprint $table) {
+            $table->id('idFacture', 4);
+            $table->string('NumLigue', 4);
+            $table->date('DateDeb');
+            $table->date('DateEcheance');
+        });
+
+        Schema::create('ContenuFacture', function (Blueprint $table) {
+            $table->id('idFacture', 4);
+            $table->string('Nomtype', 4);
+            $table->string('Qte');
+        });
     }
 
     /**
