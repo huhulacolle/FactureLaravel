@@ -22,13 +22,13 @@ class CreateTable extends Migration
             $table->string('Sport', 10);
         });
 
-        // Schema::create('prestations', function (Blueprint $table) {
-        //     $table->integer('NumPrestation', 4);
-        //     $table->increments('Nomtype');
-        //     $table->string('NomMat', 30);
-        //     $table->string('Ville', 25);
-        //     $table->integer('Prix', 5.2);
-        // });
+        Schema::create('prestations', function (Blueprint $table) {
+            $table->string('NumPrestation', 4);
+            $table->string('Nomtype', 30);
+            $table->string('NomMat', 30);
+            $table->string('Ville', 25);
+            $table->integer('Prix', 5.2);
+        });
         // Schema::create('Facture', function (Blueprint $table) {
         //     $table->id();
         //     $table->timestamps();
