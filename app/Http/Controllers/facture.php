@@ -41,10 +41,11 @@ class facture extends Controller
         //     $DateEcheance = date('Y-m-t');
         // }
 
+        $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM LIGUE, Facture WHERE LIGUE.NumLigue = Facture.NumLigue AND idFacture = ' . $_POST['idFacture'] . '');
         $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM Facture WHERE idFacture = ' . $_POST['idFacture'] . '');
         $contenu = DB::select('SELECT ContenuFacture.NomType, NomMat, Qte, Prix FROM ContenuFacture, Facture, Prestations WHERE
         ContenuFacture.idFacture = Facture.idFacture AND ContenuFacture.NomType = Prestations.NomType AND Facture.idFacture = ' . $_POST['idFacture'] . '');
 
-        return view('facture', compact('client'), compact('contenu'));
+        return view('facture', compact('adresse'), compact('client'), compact('contenu'));
     }
 }
