@@ -18,14 +18,25 @@
                 <br>
                 <strong> {{$adressedata -> CodPost}} {{$adressedata -> Ville}} </strong>
                 <br> <br>
-                <div class="col px-md-5">
-                    {{$adressedata -> NomSport}}
-                    <br>
-                    à l'attention de {{$adressedata -> Nom}}
+                <div style="float: right;">
+                    <div class="col px-md-5">
+                        {{$adressedata -> NomSport}}
+                        <br>
+                        à l'attention de {{$adressedata -> Nom}}
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
+                <br><br>
             </td>
         </tr>
     </table>
 </div>
 @endsection
+{{-- <th> Date </th>
+<th> Code Client </th>
+<th> N° Facture </th>
+<th> Échéance </th>
+<tr> {{$clientdata -> DateDeb}} </tr>
+<tr> {{$clientdata -> NumLigue}} </tr>
+<tr> {{$clientdata -> idFacture}} </tr>
+<tr> {{$clientdata -> DateEcheance}} </tr> --}}

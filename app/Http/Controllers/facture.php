@@ -10,7 +10,7 @@ class facture extends Controller
     {
         $sport = DB::select('SELECT NumLigue, Sport FROM LIGUE');
         $liste = DB::select('SELECT Nomtype, NomMat, Prix FROM Prestations');
-        return view('formfacture', compact('sport'), compact('liste'));
+        return view('formfacture', compact('sport', 'liste'));
     }
 
     public function voirfacture()
@@ -46,6 +46,6 @@ class facture extends Controller
         $contenu = DB::select('SELECT ContenuFacture.NomType, NomMat, Qte, Prix FROM ContenuFacture, Facture, Prestations WHERE
         ContenuFacture.idFacture = Facture.idFacture AND ContenuFacture.NomType = Prestations.NomType AND Facture.idFacture = ' . $_POST['idFacture'] . '');
 
-        return view('facture', compact('adresse'), compact('client'), compact('contenu'));
+        return view('facture', compact('adresse','client','contenu'));
     }
 }
