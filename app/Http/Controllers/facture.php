@@ -21,25 +21,6 @@ class facture extends Controller
 
     public function facture()
     {
-        // $maxfacture = NULL;
-        // $id = DB::select('SELECT MAX(idFacture) as "idFacture" FROM Facture');
-        // foreach ($id as $idata) {
-        //     $maxfacture = $idata -> idFacture;
-        // };
-        // if ($maxfacture == NULL) {
-        //     $maxfacture = 5174;
-        // }
-        // else {
-        //     $maxfacture++;
-        // }
-        // return view('facture', compact('maxfacture'));
-        // $DateDeb = date('Y-m-d');
-        // $jour = date('d');
-        // if ($jour >= 25) {
-        //     $DateEcheance = date('Y-m-t', strtotime('+1 month'));
-        // } else {
-        //     $DateEcheance = date('Y-m-t');
-        // }
         $j = 0;
         $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM LIGUE, Facture WHERE LIGUE.NumLigue = Facture.NumLigue AND idFacture = ' . $_GET['idFacture'] . '');
         $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM Facture WHERE idFacture = ' . $_GET['idFacture'] . '');
