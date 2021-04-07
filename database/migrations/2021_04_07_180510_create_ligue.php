@@ -19,7 +19,7 @@ class CreateLigue extends Migration
             $table->char('Nom');
             $table->char('Addrs');
             $table->char('Ville');
-            $table->integer('CodPost');
+            $table->integer('CodPost', 5);
             $table->char('Sport');
             $table->timestamps();
         });
