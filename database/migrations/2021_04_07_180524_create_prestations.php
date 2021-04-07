@@ -17,7 +17,7 @@ class CreatePrestations extends Migration
             $table->increments('NumPrestation');
             $table->char('Nomtype');
             $table->char('NomMat');
-            $table->integer('prix');
+            $table->float('Prix');
             $table->timestamps();
         });
     }

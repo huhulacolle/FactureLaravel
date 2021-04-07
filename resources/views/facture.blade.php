@@ -5,10 +5,6 @@
 </style>
 @extends('layout')
 @section('content')
-<div style="margin-left :100px;">
-    <a href="VoirFacture" class="btn btn-link">Retour</a>
-</div>
-
 <div class="mx-auto" style="width: 800px;">
     <table class="table table-bordered">
         <tr>

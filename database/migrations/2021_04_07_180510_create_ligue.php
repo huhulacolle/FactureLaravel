@@ -14,13 +14,13 @@ class CreateLigue extends Migration
     public function up()
     {
         Schema::create('ligue', function (Blueprint $table) {
-            $table->increments('Numligue');
+            $table->increments('NumLigue');
             $table->char('NomSport');
             $table->char('Nom');
             $table->char('Addrs');
-            $table->integer('Ville');
+            $table->char('Ville');
             $table->integer('CodPost');
-            $table->integer('Sport');
+            $table->char('Sport');
             $table->timestamps();
         });
     }

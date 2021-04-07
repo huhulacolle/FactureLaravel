@@ -14,9 +14,9 @@ class CreateContenufacture extends Migration
     public function up()
     {
         Schema::create('contenufacture', function (Blueprint $table) {
-            $table->id('idFacture');
+            $table->integer('idFacture');
             $table->char('Nomtype');
-            $table->char('NomMat');
+            $table->char('Qte');
             $table->timestamps();
         });
     }

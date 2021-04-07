@@ -20,7 +20,7 @@ class form extends Controller
 
     public function ajoutLigue()
     {
-        DB::insert('Insert Into LIGUE Values ("' . $_POST['NumLigue'] . '","Ligue Loraine de ' . $_POST['NomSport'] . '","' . $_POST['Nom'] . '","' . $_POST['Addrs'] . '","' . $_POST['Ville'] . '","' . $_POST['CodPost'] . '","' . $_POST['Sport'] . '")');
+        DB::insert('Insert Into ligue (NomSport, Nom, Addrs, Ville, CodPost, Sport) Values ("Ligue Loraine de ' . $_POST['NomSport'] . '","' . $_POST['Nom'] . '","' . $_POST['Addrs'] . '","' . $_POST['Ville'] . '",' . $_POST['CodPost'] . ',"' . $_POST['Sport'] . '")');
         return back();
     }
 
@@ -38,7 +38,7 @@ class form extends Controller
 
     public function ajoutPrestation()
     {
-        DB::insert('Insert Into prestations Values ("' . $_POST['NumPrestation'] . '","' . $_POST['Nomtype'] . '","' . $_POST['NomMat'] . '", ' . $_POST['Prix'] . ')');
+        DB::insert('Insert Into prestations (Nomtype, NomMat, Prix) Values ("' . $_POST['Nomtype'] . '","' . $_POST['NomMat'] . '", ' . $_POST['Prix'] . ')');
         return back();
     }
 

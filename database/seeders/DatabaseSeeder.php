@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\ligue;
+use App\Models\prestations;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,72 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        ligue::insert(array(
+            array(
+                'NumLigue' => 411007,
+                'NomSport'=> 'Ligue Loraine de Escrime',
+                'Nom' => 'Valerie LAHEURTE',
+                'Addrs'=> '72 Avenue Millies Lacroix',
+                'Ville' =>  'Echirolles',
+                'CodPost'=> 38130,
+                'Sport'=> 'Escrime',
+            ),
+            array(
+                'NumLigue' => 411008,
+                'NomSport'=> 'Ligue Loraine de Football',
+                'Nom' => 'Pierre LENOIR',
+                'Addrs'=> '2 Chemin Des Bateliers',
+                'Ville' =>  'Annecy',
+                'CodPost'=> 74000,
+                'Sport'=> 'Football',
+            ),
+            array(
+                'NumLigue' => 411009,
+                'NomSport'=> 'Ligue Loraine de Basket',
+                'Nom' => 'Mohamed BOURGARD',
+                'Addrs'=> "99 rue de l'Epeule",
+                'Ville' =>  'Rouen',
+                'CodPost'=> 76100,
+                'Sport'=> 'Basket',
+            ),
+            array(
+                'NumLigue' => 411010,
+                'NomSport'=> 'Ligue Loraine de Baby-Foot',
+                'Nom' => 'Monsieur Sylvain Delahousse',
+                'Addrs'=> '66 rue de Penthievre',
+                'Ville' =>  'Privas',
+                'CodPost'=> 07000,
+                'Sport'=> 'Baby-Foot
+                ',
+            ),
+        ));
+        prestations::insert(array(
+            array(
+                'NumPrestation' => 1,
+                'Nomtype'=> 'AFFRAN',
+                'NomMat' => 'Affranchissement',
+                'Prix'=> 3.33,
+            ),
+            array(
+                'NumPrestation' => 2,
+                'Nomtype'=> 'PHOTOCOULEUR',
+                'NomMat' => 'Photocopies couleur',
+                'Prix'=> 0.24,
+            ),
+            array(
+                'NumPrestation' => 3,
+                'Nomtype'=> 'PHOTON&B',
+                'NomMat' => 'Photocopies Noir et Blanc',
+                'Prix'=> 0.06,
+            ),
+            array(
+                'NumPrestation' => 4,
+                'Nomtype'=> 'AFFRAN',
+                'NomMat' => 'Affranchissement',
+                'Prix'=> 3.33,
+            ),
+            ),
+        );
+
     }
 }
