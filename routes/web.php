@@ -41,4 +41,4 @@ Route::get('FormulaireFacture', [facture::class, 'formfacture']);
 
 Route::get('VoirFacture', [facture::class, 'voirfacture']);
 
-Route::post('Facture', [facture::class, 'facture']);
+Route::get('Facture', [facture::class, 'facture']);

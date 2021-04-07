@@ -26,7 +26,27 @@
                     </div>
                     @endforeach
                 </div>
-                <br><br>
+                <br><br><br>
+                <div style="text-align: center">
+                    <table class="table table-borderless">
+                        <thead>
+                            <td> Date </td>
+                            <td> Code Client </td>
+                            <td> N° Facture </td>
+                            <td> Échéance </td>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @foreach ($client as $clientdata)
+                                    <td> {{$clientdata -> DateDeb}} </td>
+                                    <td> {{$clientdata -> NumLigue}} </td>
+                                    <td> {{$clientdata -> idFacture}} </td>
+                                    <td> {{$clientdata -> DateEcheance}} </td>
+                                @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </td>
         </tr>
     </table>
