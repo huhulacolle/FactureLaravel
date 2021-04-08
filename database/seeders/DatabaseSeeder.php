@@ -75,9 +75,9 @@ class DatabaseSeeder extends Seeder
             ),
             array(
                 'NumPrestation' => 4,
-                'Nomtype'=> 'AFFRAN',
-                'NomMat' => 'Affranchissement',
-                'Prix'=> 3.33,
+                'Nomtype'=> 'TRACEUR',
+                'NomMat' => 'Utilisation du traceur',
+                'Prix'=> 0.36,
             ),
             ),
         );
