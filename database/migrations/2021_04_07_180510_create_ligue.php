@@ -21,7 +21,7 @@ class CreateLigue extends Migration
             $table->char('Ville');
             $table->integer('CodPost');
             $table->char('Sport');
-            $table->boolean('Delete');
+            $table->boolean('Delet');
             $table->timestamps();
         });
     }

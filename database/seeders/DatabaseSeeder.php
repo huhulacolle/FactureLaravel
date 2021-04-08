@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
                 'Ville' =>  'Echirolles',
                 'CodPost'=> 38130,
                 'Sport'=> 'Escrime',
-                'Delete'=> 0,
+                'Delet'=> 0,
             ),
             array(
                 'NumLigue' => 411008,
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
                 'Ville' =>  'Annecy',
                 'CodPost'=> 74000,
                 'Sport'=> 'Football',
-                'Delete'=> 0,
+                'Delet'=> 0,
             ),
             array(
                 'NumLigue' => 411009,
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
                 'Ville' =>  'Rouen',
                 'CodPost'=> 76100,
                 'Sport'=> 'Basket',
-                'Delete'=> 0,
+                'Delet'=> 0,
             ),
             array(
                 'NumLigue' => 411010,
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
                 'Ville' =>  'Privas',
                 'CodPost'=> 07000,
                 'Sport'=> 'Baby-Foot',
-                'Delete'=> 0,
+                'Delet'=> 0,
             ),
         ));
         prestations::insert(array(
@@ -63,28 +63,28 @@ class DatabaseSeeder extends Seeder
                 'Nomtype'=> 'AFFRAN',
                 'NomMat' => 'Affranchissement',
                 'Prix'=> 3.33,
-                'Delete'=> 0,
+                'Delet'=> 0,
             ),
             array(
                 'NumPrestation' => 2,
                 'Nomtype'=> 'PHOTOCOULEUR',
                 'NomMat' => 'Photocopies couleur',
                 'Prix'=> 0.24,
-                'Delete'=> 0,
+                'Delet'=> 0,
             ),
             array(
                 'NumPrestation' => 3,
                 'Nomtype'=> 'PHOTON&B',
                 'NomMat' => 'Photocopies Noir et Blanc',
                 'Prix'=> 0.06,
-                'Delete'=> 0,
+                'Delet'=> 0,
             ),
             array(
                 'NumPrestation' => 4,
                 'Nomtype'=> 'TRACEUR',
                 'NomMat' => 'Utilisation du traceur',
                 'Prix'=> 0.36,
-                'Delete'=> 0,
+                'Delet'=> 0,
             ),
             ),
         );

@@ -8,8 +8,8 @@ class facture extends Controller
 {
     public function formfacture()
     {
-        $sport = DB::select('SELECT NumLigue, Sport FROM ligue');
-        $liste = DB::select('SELECT Nomtype, NomMat, Prix FROM prestations');
+        $sport = DB::select('SELECT NumLigue, Sport FROM ligue WHERE Delet = 0');
+        $liste = DB::select('SELECT Nomtype, NomMat, Prix FROM prestations WHERE Delet = 0');
         return view('formfacture', compact('sport', 'liste'));
     }
 

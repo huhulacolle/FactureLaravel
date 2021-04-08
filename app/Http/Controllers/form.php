@@ -8,19 +8,19 @@ class form extends Controller
 {
     public function afficheLigue()
     {
-        $ligue = DB::select('SELECT * FROM ligue');
+        $ligue = DB::select('SELECT * FROM ligue WHERE Delet = 0');
         return view('ligues', compact('ligue'));
     }
 
     public function affichePrestation()
     {
-        $prestation = DB::select('SELECT * FROM prestations ORDER BY NumPrestation');
+        $prestation = DB::select('SELECT * FROM prestations WHERE Delet = 0 ORDER BY NumPrestation');
         return view('prestations', compact('prestation'));
     }
 
     public function ajoutLigue()
     {
-        DB::insert('Insert Into ligue (NomSport, Nom, Addrs, Ville, CodPost, Sport) Values ("Ligue Loraine de ' . $_POST['NomSport'] . '","' . $_POST['Nom'] . '","' . $_POST['Addrs'] . '","' . $_POST['Ville'] . '",' . $_POST['CodPost'] . ',"' . $_POST['Sport'] . '")');
+        DB::insert('Insert Into ligue (NomSport, Nom, Addrs, Ville, CodPost, Sport, Delet) Values ("Ligue Loraine de ' . $_POST['NomSport'] . '","' . $_POST['Nom'] . '","' . $_POST['Addrs'] . '","' . $_POST['Ville'] . '",' . $_POST['CodPost'] . ',"' . $_POST['Sport'] . '", 0)');
         return back();
     }
 
@@ -32,13 +32,13 @@ class form extends Controller
 
     public function supprimligue()
     {
-        DB::delete('delete from ligue where NumLigue = '.$_POST['supr'].'');
+        DB::update('update ligue set Delet = 1 where NumLigue = ?', [$_POST['supr']]);
         return back();
     }
 
     public function ajoutPrestation()
     {
-        DB::insert('Insert Into prestations (Nomtype, NomMat, Prix) Values ("' . $_POST['Nomtype'] . '","' . $_POST['NomMat'] . '", ' . $_POST['Prix'] . ')');
+        DB::insert('Insert Into prestations (Nomtype, NomMat, Prix, Delet) Values ("' . $_POST['Nomtype'] . '","' . $_POST['NomMat'] . '", ' . $_POST['Prix'] . ', 0)');
         return back();
     }
 
@@ -50,7 +50,7 @@ class form extends Controller
 
     public function supprimprestation()
     {
-        DB::delete('delete from prestations where NumPrestation = '.$_POST['supr'].'');
+        DB::update('update prestations set Delet = 1 where NumPrestation = ?', [$_POST['supr']]);
         return back();
     }
 }

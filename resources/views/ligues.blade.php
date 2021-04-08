@@ -12,7 +12,6 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col"> ID </th>
             <th scope="col"> Ligue </th>
             <th scope="col"> Nom </th>
             <th scope="col"> Adresse </th>
@@ -28,10 +27,7 @@
         <tr>
             <form action="modifligue" method="post">
                 @csrf
-                <td>
-                    <p><input type="text" class="form-control" value={{$liguedata -> NumLigue}} readonly></p>
-                    <?php $max = $liguedata -> NumLigue ?>
-                </td>
+                <?php $max = $liguedata -> NumLigue ?>
                 <td>
                     <?php
                 $NomSport = explode(" ", $liguedata -> NomSport);
@@ -82,9 +78,6 @@
         <form action="ajoutligue" method="post">
             @csrf
             <tr>
-                <td>
-                    <p><input type="text" class="form-control" name="NumLigue" value={{$max + 1}} readonly></p>
-                </td>
                 <td>
                     Ligue Loraine de <input type="text" class="form-control" name="NomSport" required>
                 </td>

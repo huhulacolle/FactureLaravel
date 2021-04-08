@@ -7,7 +7,6 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col"> ID </th>
             <th scope="col"> Type </th>
             <th scope="col"> Matériel </th>
             <th scope="col"> Prix </th>
@@ -21,10 +20,6 @@
         <tr>
             <form action="modifprestation" method="post">
                 @csrf
-                <td>
-                    <input type="text" class="form-control" name="NumPrestation"
-                        value={{$prestationdata -> NumPrestation}} readonly>
-                </td>
                 <td>
                     <input type="text" class="form-control" name="Nomtype" value={{$prestationdata -> Nomtype}}
                         required>
@@ -55,9 +50,6 @@
         <form action="ajoutprestation" method="post">
             @csrf
             <tr>
-                <td>
-                    <input type="text" class="form-control" name="NumPrestation" value={{$max + 1}} readonly>
-                </td>
                 <td>
                     <input type="text" class="form-control" name="Nomtype" required>
                 </td>
