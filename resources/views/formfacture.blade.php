@@ -1,11 +1,13 @@
+<?php $nb = 0; ?>
 @extends('layout')
 @section('content')
 <center>
     <h2><strong>Nouvelle Facture</strong></h2>
 </center>
 <br>
-<form action="facture" method="post">
-    <div class="mx-auto" style="width: 500px;">
+<form action="CreeFacture" method="post">
+    @csrf
+    <div class="mx-auto" style="width: 650px;">
         <table class="table table-borderless">
             <tr>
                 <td>
@@ -29,13 +31,21 @@
                     {{$listedata -> NomMat}}
                 </td>
                 <td>
-                    <input type="number" name={{$listedata -> Nomtype}} class="form-control">
+                    <input type="number" name={{$listedata -> Nomtype}} placeholder=0 class="form-control">
                 </td>
                 <td>
                     {{$listedata -> Prix}}
                 </td>
             </tr>
+            <?php $nb++ ?>
             @endforeach
+            <input type="hidden" name="nb" value={{$nb}}>
+            <tr>
+                <td colspan="3"> &ensp; </td>
+                <td>
+                    <input type="submit" value="Crée la Facture" class="btn btn-primary">
+                </td>
+            </tr>
         </table>
     </div>
 </form>

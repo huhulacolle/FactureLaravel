@@ -19,6 +19,44 @@ class facture extends Controller
         return view('voirfacture', compact('facture'));
     }
 
+    public function creefacture()
+    {
+        $jour = date('d');
+        if ($jour >= 25) {
+            $DateEcheance = date('Y-m-t', strtotime('+1 month'));
+        } else {
+            $DateEcheance = date('Y-m-t');
+        }
+        $verif = DB::select('SELECT MAX(idFacture) AS idFacture FROM facture');
+        foreach ($verif as $verifdata) {
+            $max = $verifdata -> idFacture;
+        }
+        if ($max == null) {
+            DB::insert('insert into facture (idFacture, NumLigue, DateDeb, DateEcheance) values (?, ?, ?, ?)', [5174 ,$_POST['NumLigue'], date('Y-m-d'), $DateEcheance]);
+            $max = 5174;
+        }
+        else {
+            DB::insert('insert into facture (NumLigue, DateDeb, DateEcheance) values (?, ?, ?)', [$_POST['NumLigue'], date('Y-m-d'), $DateEcheance]);
+            $max++;
+        }
+        $reqNomType = DB::select('SELECT Nomtype FROM Prestations');
+        $i = 0;
+        foreach ($reqNomType as $reqNomTypedata) {
+            $Nomtype[$i] = $reqNomTypedata -> Nomtype;
+            if ($_POST[$Nomtype[$i]] == null) {
+                $Qte[$i] = 0;
+            }
+            else {
+                $Qte[$i] = $_POST[$Nomtype[$i]];
+            }
+            $i++;
+        }
+        for ($i=0; $i < $_POST['nb']; $i++) {
+            DB::insert('insert into contenufacture (idFacture, Nomtype, Qte) values (?, ?, ?)', [$max, $Nomtype[$i], $Qte[$i]]);
+        }
+        return redirect('Facture?idFacture='.$max.'');
+    }
+
     public function facture()
     {
         $j = 0;
