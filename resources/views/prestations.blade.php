@@ -32,7 +32,7 @@
                 </td>
                 <td>
                     <center>
-                        <button type="submit" class="btn btn-primary">Modifier</button>
+                        <button type="submit" class="btn btn-primary" name="NumPrestation" value={{$prestationdata -> NumPrestation}} >Modifier</button>
                     </center>
                 </td>
             </form>

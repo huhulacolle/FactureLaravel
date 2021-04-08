@@ -15,7 +15,7 @@ class facture extends Controller
 
     public function voirfacture()
     {
-        $facture = DB::select('SELECT idFacture, NomSport, DateDeb, DateEcheance FROM ligue, Facture WHERE ligue.NumLigue = facture.NumLigue');
+        $facture = DB::select('SELECT idFacture, NomSport, DateDeb, DateEcheance FROM ligue, facture WHERE ligue.NumLigue = facture.NumLigue');
         return view('voirfacture', compact('facture'));
     }
 
@@ -39,7 +39,7 @@ class facture extends Controller
             DB::insert('insert into facture (NumLigue, DateDeb, DateEcheance) values (?, ?, ?)', [$_POST['NumLigue'], date('Y-m-d'), $DateEcheance]);
             $max++;
         }
-        $reqNomType = DB::select('SELECT Nomtype FROM Prestations');
+        $reqNomType = DB::select('SELECT Nomtype FROM prestations WHERE Delet = 0');
         $i = 0;
         foreach ($reqNomType as $reqNomTypedata) {
             $Nomtype[$i] = $reqNomTypedata -> Nomtype;
