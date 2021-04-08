@@ -8,14 +8,14 @@ class facture extends Controller
 {
     public function formfacture()
     {
-        $sport = DB::select('SELECT NumLigue, Sport FROM LIGUE');
-        $liste = DB::select('SELECT Nomtype, NomMat, Prix FROM Prestations');
+        $sport = DB::select('SELECT NumLigue, Sport FROM ligue');
+        $liste = DB::select('SELECT Nomtype, NomMat, Prix FROM prestations');
         return view('formfacture', compact('sport', 'liste'));
     }
 
     public function voirfacture()
     {
-        $facture = DB::select('SELECT idFacture, NomSport, DateDeb, DateEcheance FROM LIGUE, Facture WHERE LIGUE.NumLigue = Facture.NumLigue');
+        $facture = DB::select('SELECT idFacture, NomSport, DateDeb, DateEcheance FROM ligue, Facture WHERE ligue.NumLigue = facture.NumLigue');
         return view('voirfacture', compact('facture'));
     }
 
@@ -60,10 +60,9 @@ class facture extends Controller
     public function facture()
     {
         $j = 0;
-        $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM LIGUE, Facture WHERE LIGUE.NumLigue = Facture.NumLigue AND idFacture = ' . $_GET['idFacture'] . '');
-        $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM Facture WHERE idFacture = ' . $_GET['idFacture'] . '');
-        $contenu = DB::select('SELECT ContenuFacture.NomType as "ContenuFacture", NomMat, Qte, Prix FROM ContenuFacture, Facture, Prestations WHERE
-        ContenuFacture.idFacture = Facture.idFacture AND ContenuFacture.NomType = Prestations.NomType AND Facture.idFacture = ' . $_GET['idFacture'] . '');
+        $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM ligue, facture WHERE ligue.NumLigue = facture.NumLigue AND idFacture = ' . $_GET['idFacture'] . '');
+        $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM facture WHERE idFacture = ' . $_GET['idFacture'] . '');
+        $contenu = DB::select('SELECT contenufacture.NomType as "ContenuFacture", NomMat, Qte, Prix FROM contenufacture, prestations WHERE contenufacture.Nomtype = prestations.Nomtype AND idFacture = ' . $_GET['idFacture'] . '');
         foreach ($contenu as $contenudata) {
             $prix[$j] = ($contenudata -> Qte) * ($contenudata -> Prix);
             $j++;

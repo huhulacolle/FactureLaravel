@@ -18,6 +18,7 @@ class CreatePrestations extends Migration
             $table->char('Nomtype');
             $table->char('NomMat');
             $table->float('Prix');
+            $table->boolean('Delete');
             $table->timestamps();
         });
     }

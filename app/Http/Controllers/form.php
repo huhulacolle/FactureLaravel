@@ -26,13 +26,13 @@ class form extends Controller
 
     public function modifligue()
     {
-        DB::update('update LIGUE set NomSport = "Ligue Loraine de '.$_POST['NomSport'].'", Nom = "'.$_POST['Nom'].'" , Addrs = "'.$_POST['Addrs'].'" , Ville = "'.$_POST['Ville'].'" , CodPost = '.$_POST['CodPost'].', Sport = "'.$_POST['Sport'].'" where NumLigue = '.$_POST['NumLigue'].'');
+        DB::update('update ligue set NomSport = "Ligue Loraine de '.$_POST['NomSport'].'", Nom = "'.$_POST['Nom'].'" , Addrs = "'.$_POST['Addrs'].'" , Ville = "'.$_POST['Ville'].'" , CodPost = '.$_POST['CodPost'].', Sport = "'.$_POST['Sport'].'" where NumLigue = '.$_POST['NumLigue'].'');
         return back();
     }
 
     public function supprimligue()
     {
-        DB::delete('delete from LIGUE where NumLigue = '.$_POST['supr'].'');
+        DB::delete('delete from ligue where NumLigue = '.$_POST['supr'].'');
         return back();
     }
 
