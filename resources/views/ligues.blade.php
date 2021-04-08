@@ -32,20 +32,20 @@
                     <?php
                 $NomSport = explode(" ", $liguedata -> NomSport);
                 $NomSport = $NomSport[3];
-                Log::debug($NomSport);
                 ?>
                     Ligue Loraine de <input type="text" name="NomSport" class="form-control" value={{$NomSport}}
                         required>
                 </td>
                 <td>
-                    <p><input type="text" name="Nom" class="form-control" value={{$liguedata -> Nom}} required></p>
+                    <p><input type="text" name="Nom" class="form-control" value="{{$liguedata -> Nom}}" required></p>
+                    <?php Log::debug($liguedata -> Nom); ?>
                 </td>
                 <td>
                     <p><input type="text" name="Addrs" class="form-control" value="{{$liguedata -> Addrs}}" required>
                     </p>
                 </td>
                 <td>
-                    <p><input type="text" name="Ville" class="form-control" value={{$liguedata -> Ville}} required></p>
+                    <p><input type="text" name="Ville" class="form-control" value="{{$liguedata -> Ville}}" required></p>
                 </td>
                 <td>
                     <p>
