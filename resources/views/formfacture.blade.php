@@ -31,7 +31,7 @@
                     {{$listedata -> NomMat}}
                 </td>
                 <td>
-                    <input type="number" name={{$listedata -> Nomtype}} placeholder=0 class="form-control">
+                    <input type="number" name={{$listedata -> NumPrestation}} placeholder=0 class="form-control">
                 </td>
                 <td>
                     {{$listedata -> Prix}}

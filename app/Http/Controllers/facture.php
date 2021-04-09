@@ -9,7 +9,7 @@ class facture extends Controller
     public function formfacture()
     {
         $sport = DB::select('SELECT NumLigue, Sport FROM ligue WHERE Delet = 0');
-        $liste = DB::select('SELECT Nomtype, NomMat, Prix FROM prestations WHERE Delet = 0');
+        $liste = DB::select('SELECT NumPrestation, NomMat, Prix FROM prestations WHERE Delet = 0');
         return view('formfacture', compact('sport', 'liste'));
     }
 
@@ -39,20 +39,20 @@ class facture extends Controller
             DB::insert('insert into facture (NumLigue, DateDeb, DateEcheance) values (?, ?, ?)', [$_POST['NumLigue'], date('Y-m-d'), $DateEcheance]);
             $max++;
         }
-        $reqNomType = DB::select('SELECT Nomtype FROM prestations WHERE Delet = 0');
+        $reqNomType = DB::select('SELECT NumPrestation FROM prestations WHERE Delet = 0');
         $i = 0;
         foreach ($reqNomType as $reqNomTypedata) {
-            $Nomtype[$i] = $reqNomTypedata -> Nomtype;
-            if ($_POST[$Nomtype[$i]] == null) {
+            $NumPrestation[$i] = $reqNomTypedata -> NumPrestation;
+            if ($_POST[$NumPrestation[$i]] == null) {
                 $Qte[$i] = 0;
             }
             else {
-                $Qte[$i] = $_POST[$Nomtype[$i]];
+                $Qte[$i] = $_POST[$NumPrestation[$i]];
             }
             $i++;
         }
         for ($i=0; $i < $_POST['nb']; $i++) {
-            DB::insert('insert into contenufacture (idFacture, Nomtype, Qte) values (?, ?, ?)', [$max, $Nomtype[$i], $Qte[$i]]);
+            DB::insert('insert into contenufacture (idFacture, NumPrestation, Qte) values (?, ?, ?)', [$max, $NumPrestation[$i], $Qte[$i]]);
         }
         return redirect('Facture?idFacture='.$max.'');
     }
@@ -62,7 +62,7 @@ class facture extends Controller
         $j = 0;
         $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM ligue, facture WHERE ligue.NumLigue = facture.NumLigue AND idFacture = ' . $_GET['idFacture'] . '');
         $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM facture WHERE idFacture = ' . $_GET['idFacture'] . '');
-        $contenu = DB::select('SELECT contenufacture.NomType as "ContenuFacture", NomMat, Qte, Prix FROM contenufacture, prestations WHERE contenufacture.Nomtype = prestations.Nomtype AND idFacture = ' . $_GET['idFacture'] . '');
+        $contenu = DB::select('SELECT prestations.NomType as "ContenuFacture", NomMat, Qte, Prix FROM contenufacture, prestations WHERE contenufacture.NumPrestation = prestations.NumPrestation AND idFacture =  ' . $_GET['idFacture'] . ' ORDER BY prestations.NumPrestation');
         foreach ($contenu as $contenudata) {
             $prix[$j] = ($contenudata -> Qte) * ($contenudata -> Prix);
             $j++;
