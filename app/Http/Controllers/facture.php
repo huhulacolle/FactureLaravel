@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class facture extends Controller
 {
@@ -73,5 +74,24 @@ class facture extends Controller
             $prix_total = $prix_total + $prix[$i];
         }
         return view('facture', compact('adresse','client','contenu', 'prix', 'prix_total'));
+    }
+
+    public function pdfFacture()
+    {
+        $j = 0;
+        $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM ligue, facture WHERE ligue.NumLigue = facture.NumLigue AND idFacture = 5174');
+        $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM facture WHERE idFacture = 5174');
+        $contenu = DB::select('SELECT prestations.NomType as "ContenuFacture", NomMat, Qte, Prix FROM contenufacture, prestations WHERE contenufacture.NumPrestation = prestations.NumPrestation AND idFacture =  5174 ORDER BY prestations.NumPrestation');
+        foreach ($contenu as $contenudata) {
+            $prix[$j] = ($contenudata -> Qte) * ($contenudata -> Prix);
+            $j++;
+        }
+        $prix_total = 0;
+        for ($i=0; $i < $j; $i++) {
+            $prix_total = $prix_total + $prix[$i];
+        }
+        $pdf = PDF::LoadView('pdf_facture', compact('adresse','client','contenu', 'prix', 'prix_total'));
+        return $pdf->download('Facture.pdf');
+        // return view('pdf_facture', compact('adresse','client','contenu', 'prix', 'prix_total'));
     }
 }
