@@ -15,8 +15,9 @@ class facture extends Controller
 
     public function voirfacture()
     {
+        $idFacture = NULL;
         $facture = DB::select('SELECT idFacture, NomSport, DateDeb, DateEcheance FROM ligue, facture WHERE ligue.NumLigue = facture.NumLigue');
-        return view('voirfacture', compact('facture'));
+        return view('voirfacture', compact('facture', 'idFacture'));
     }
 
     public function creefacture()

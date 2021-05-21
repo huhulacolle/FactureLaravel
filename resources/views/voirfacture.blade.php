@@ -11,7 +11,6 @@
     <h6> Selectionner la facture à afficher </h6>
 </center>
 <br>
-<?php $idFacture = NULL ?>
 <div class="mx-auto" style="width: 600px;">
     @foreach ($facture as $facturedata)
     <?php $idFacture = $facturedata -> idFacture ?>
