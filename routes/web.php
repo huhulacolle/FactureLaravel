@@ -43,6 +43,6 @@ Route::get('VoirFacture', [facture::class, 'voirfacture']);
 
 Route::post('CreeFacture', [facture::class, 'creefacture']);
 
-Route::get('Facture', [facture::class, 'facture']);
+Route::get('Facture/{idFacture}', [facture::class, 'facture']);
 
 Route::get('test', [facture::class, 'pdfFacture']);

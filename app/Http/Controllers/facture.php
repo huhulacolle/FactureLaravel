@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use PDF;
+use Barryvdh\DomPDF\PDF;
 
 class facture extends Controller
 {
@@ -56,15 +56,15 @@ class facture extends Controller
         for ($i=0; $i < $_POST['nb']; $i++) {
             DB::insert('insert into contenufacture (idFacture, NumPrestation, Qte) values (?, ?, ?)', [$max, $NumPrestation[$i], $Qte[$i]]);
         }
-        return redirect('Facture?idFacture='.$max.'');
+        return redirect('Facture/'.$max.'');
     }
 
-    public function facture()
+    public function facture($idFacture)
     {
         $j = 0;
-        $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM ligue, facture WHERE ligue.NumLigue = facture.NumLigue AND idFacture = ' . $_GET['idFacture'] . '');
-        $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM facture WHERE idFacture = ' . $_GET['idFacture'] . '');
-        $contenu = DB::select('SELECT prestations.NomType as "ContenuFacture", NomMat, Qte, Prix FROM contenufacture, prestations WHERE contenufacture.NumPrestation = prestations.NumPrestation AND idFacture =  ' . $_GET['idFacture'] . ' ORDER BY prestations.NumPrestation');
+        $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM ligue, facture WHERE ligue.NumLigue = facture.NumLigue AND idFacture = ' . $idFacture . '');
+        $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM facture WHERE idFacture = ' . $idFacture . '');
+        $contenu = DB::select('SELECT prestations.NomType as "ContenuFacture", NomMat, Qte, Prix FROM contenufacture, prestations WHERE contenufacture.NumPrestation = prestations.NumPrestation AND idFacture =  ' . $idFacture . ' ORDER BY prestations.NumPrestation');
         foreach ($contenu as $contenudata) {
             $prix[$j] = ($contenudata -> Qte) * ($contenudata -> Prix);
             $j++;

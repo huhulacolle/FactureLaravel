@@ -27,26 +27,10 @@
                     <p> Facture N° FC {{$facturedata -> idFacture}} : </p>
                 </td>
                 <td>
-                    <a href="Facture?idFacture={{$facturedata -> idFacture}}" class="btn btn-link">{{$facturedata -> NomSport}} : {{$facturedata -> DateDeb}} - {{$facturedata -> DateEcheance}}</a>
+                    <a href="Facture/{{$facturedata -> idFacture}}" class="btn btn-link">{{$facturedata -> NomSport}} : {{$facturedata -> DateDeb}} - {{$facturedata -> DateEcheance}}</a>
                 </td>
             </tr>
         @endforeach
     </table>
-    {{-- <table class="table table-borderless">
-        <form action="Facture" method="get">
-            @csrf
-            @foreach ($facture as $facturedata)
-            <tr>
-                <td> <p> Facture N° FC {{$facturedata -> idFacture}} : </p>
-    </td>
-    <td>
-        <button type="submit" class="btn btn-link" name="idFacture" value={{$facturedata -> idFacture}}>
-            {{$facturedata -> NomSport}} : {{$facturedata -> DateDeb}} - {{$facturedata -> DateEcheance}}
-        </button>
-    </td>
-    </tr>
-    @endforeach
-    </form>
-    </table> --}}
 </div>
 @endsection

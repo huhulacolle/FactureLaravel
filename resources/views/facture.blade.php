@@ -9,7 +9,7 @@
     <table class="table table-bordered">
         <tr>
             <td>
-                <img src="mdl.png" height="150px" width="150px">
+                <img src="/mdl.png" height="150px" width="150px">
                 <center>
                     <h1>
                         <strong> Facture </strong>

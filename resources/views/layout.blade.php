@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <a href='/'> <img src="mdl.png" height="150px" width="150px"> </a>
+    <a href='/'> <img src="/mdl.png" height="150px" width="150px"> </a>
 <center>
   <h2> Application Facturation </h2>
 </center>
@@ -24,10 +24,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <a class="nav-item nav-link" href="Ligues">Ligues</a>
+        <a class="nav-item nav-link" href="/Ligues">Ligues</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-item nav-link" href="Prestations">Prestations</a>
+        <a class="nav-item nav-link" href="/Prestations">Prestations</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -35,8 +35,8 @@
           Facture
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="FormulaireFacture">Créer une facture</a>
-          <a class="dropdown-item" href="VoirFacture">Voir les factures</a>
+          <a class="dropdown-item" href="/FormulaireFacture">Créer une facture</a>
+          <a class="dropdown-item" href="/VoirFacture">Voir les factures</a>
       </li>
     </ul>
   </div>
