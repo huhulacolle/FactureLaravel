@@ -61,10 +61,15 @@ class facture extends Controller
 
     public function facture($idFacture)
     {
+        $error = false;
         $j = 0;
+        $prix[$j] = NULL;
         $adresse = DB::select('SELECT NomSport, Nom, Addrs, Ville, CodPost, Sport FROM ligue, facture WHERE ligue.NumLigue = facture.NumLigue AND idFacture = ' . $idFacture . '');
         $client = DB::select('SELECT idFacture, NumLigue, DateDeb, DateEcheance FROM facture WHERE idFacture = ' . $idFacture . '');
         $contenu = DB::select('SELECT prestations.NomType as "ContenuFacture", NomMat, Qte, Prix FROM contenufacture, prestations WHERE contenufacture.NumPrestation = prestations.NumPrestation AND idFacture =  ' . $idFacture . ' ORDER BY prestations.NumPrestation');
+        if ($contenu == NULL) {
+            $error = true;
+        }
         foreach ($contenu as $contenudata) {
             $prix[$j] = ($contenudata -> Qte) * ($contenudata -> Prix);
             $j++;
@@ -73,7 +78,7 @@ class facture extends Controller
         for ($i=0; $i < $j; $i++) {
             $prix_total = $prix_total + $prix[$i];
         }
-        return view('facture', compact('adresse','client','contenu', 'prix', 'prix_total'));
+        return view('facture', compact('adresse','client','contenu', 'prix', 'prix_total', 'error'));
     }
 
     public function pdfFacture()
