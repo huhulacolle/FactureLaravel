@@ -50,10 +50,10 @@
                             <tbody>
                                 <tr>
                                     @foreach ($client as $clientdata)
-                                    <td> {{$clientdata -> DateDeb}} </td>
+                                    <td> {{implode('/',array_reverse  (explode('-',$clientdata -> DateDeb)))}} </td>
                                     <td> {{$clientdata -> NumLigue}} </td>
                                     <td> {{$clientdata -> idFacture}} </td>
-                                    <td> {{$clientdata -> DateEcheance}} </td>
+                                    <td> {{implode('/',array_reverse  (explode('-',$clientdata -> DateEcheance)))}} </td>
                                     @endforeach
                                 </tr>
                             </tbody>
